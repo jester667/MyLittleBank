@@ -5,13 +5,13 @@ import java.util.Date;
 
 @Entity
 @Table(name = "transactions")
-public class Transactions {
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "type")
     @Enumerated(value = EnumType.STRING)
-    private TransactionsTypes type;
+    private TransactionType type;
     @Column(name = "amount")
     private int amount;
     @Column(name = "date_time")
@@ -19,9 +19,9 @@ public class Transactions {
     private Date dateTime;
     @Column(name = "account")
     @ManyToOne
-    private Accounts accounts;
+    private Account account;
 
-    public Transactions() {
+    public Transaction() {
 
     }
 
@@ -33,11 +33,11 @@ public class Transactions {
         this.id = id;
     }
 
-    public TransactionsTypes getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(TransactionsTypes type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
@@ -57,11 +57,11 @@ public class Transactions {
         this.dateTime = dateTime;
     }
 
-    public Accounts getAccounts() {
-        return accounts;
+    public Account getAccounts() {
+        return account;
     }
 
-    public void setAccounts(Accounts accounts) {
-        this.accounts = accounts;
+    public void setAccounts(Account account) {
+        this.account = account;
     }
 }

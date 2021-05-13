@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "accounts")
-public class Accounts {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountNumber;
@@ -19,9 +19,9 @@ public class Accounts {
     private Date validityPeriod;
     @Column(name = "owner")
     @ManyToOne
-    private Users owner;
+    private User owner;
 
-    public Accounts() {
+    public Account() {
     }
 
     public int getAccountNumber() {
@@ -56,11 +56,11 @@ public class Accounts {
         this.validityPeriod = validityPeriod;
     }
 
-    public Users getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Users owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 }

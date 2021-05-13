@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -19,7 +19,7 @@ public class Users {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
-    public Users() {
+    public User() {
     }
 
     public String getId() {
