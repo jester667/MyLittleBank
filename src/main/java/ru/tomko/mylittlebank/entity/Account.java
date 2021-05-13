@@ -8,6 +8,7 @@ import java.util.Date;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "account_number")
     private int accountNumber;
     @Column(name = "amount")
     private int amount;
