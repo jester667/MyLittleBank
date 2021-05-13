@@ -18,8 +18,8 @@ public class Account {
     @Column(name = "validity_period")
     @Temporal(TemporalType.DATE)
     private Date validityPeriod;
-    @Column(name = "owner")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner")
     private User owner;
 
     public Account() {

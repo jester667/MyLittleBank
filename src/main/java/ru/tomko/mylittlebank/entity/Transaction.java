@@ -9,16 +9,16 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "type")
     @Enumerated(value = EnumType.STRING)
+    @JoinColumn(name = "type")
     private TransactionType type;
     @Column(name = "amount")
     private int amount;
     @Column(name = "date_time")
     @Temporal(TemporalType.DATE)
     private Date dateTime;
-    @Column(name = "account")
     @ManyToOne
+    @JoinColumn(name = "account")
     private Account account;
 
     public Transaction() {
