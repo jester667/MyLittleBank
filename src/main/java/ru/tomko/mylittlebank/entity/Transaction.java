@@ -1,6 +1,8 @@
 package ru.tomko.mylittlebank.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 @Entity
@@ -11,14 +13,18 @@ public class Transaction {
     private int id;
     @Enumerated(value = EnumType.STRING)
     @JoinColumn(name = "type")
+    @NotNull(message = "type must be not empty")
     private TransactionType type;
     @Column(name = "amount")
+    @Positive(message = "amount must be positive")
     private int amount;
     @Column(name = "date_time")
     @Temporal(TemporalType.DATE)
+    @NotNull(message = "date must be not empty")
     private Date dateTime;
     @ManyToOne
     @JoinColumn(name = "account")
+    @NotNull(message = "account must be not empty")
     private Account account;
 
     public Transaction() {
