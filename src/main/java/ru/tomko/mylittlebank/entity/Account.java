@@ -13,7 +13,6 @@ public class Account {
     @Column(name = "account_number")
     private int accountNumber;
     @Column(name = "amount")
-    @Positive(message = "amount must be positive")
     private int amount;
     @Column(name = "opening_date")
     @Temporal(TemporalType.DATE)

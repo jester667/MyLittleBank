@@ -31,6 +31,17 @@ public class Transaction {
 
     }
 
+    public Transaction(@NotNull(message = "type must be not empty") TransactionType type,
+                       @Positive(message = "amount must be positive") int amount,
+                       @NotNull(message = "date must be not empty") Date dateTime,
+                       @NotNull(message = "account must be not empty") Account account) {
+        this.id = id;
+        this.type = type;
+        this.amount = amount;
+        this.dateTime = dateTime;
+        this.account = account;
+    }
+
     public int getId() {
         return id;
     }

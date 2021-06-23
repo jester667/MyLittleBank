@@ -3,16 +3,15 @@ package ru.tomko.mylittlebank.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import ru.tomko.mylittlebank.dao.UserRepository;
 import ru.tomko.mylittlebank.entity.User;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.io.IOException;
+import java.util.*;
 
 @RestController
 @RequestMapping("users")
@@ -21,7 +20,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping
-    public ResponseEntity<String> addUser(@RequestBody @Valid User user){
+    public ResponseEntity<String> addUser(@RequestBody @Valid User user) throws IOException {
         userRepository.save(user);
         return ResponseEntity.ok("User data is valid");
     }
